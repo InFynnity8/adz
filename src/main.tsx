@@ -23,6 +23,7 @@ import MicrosoftAR from "./pages/website/resourses/MicrosoftAR.tsx";
 import GoogleAR from "./pages/website/resourses/GoogleAR.tsx";
 import Signup from "./pages/auth/Signup.tsx";
 import Login from "./pages/auth/Login.tsx";
+import Dashboard from "./pages/app/Dashboard.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -31,6 +32,8 @@ createRoot(document.getElementById("root")!).render(
         {/* website route */}
         <Route path="/" element={<App/>}>
           <Route index element={<LandingPage/>}/>
+          <Route path="why-adz" element={<WhyAdz/>}/>
+          <Route path="pricing" element={<Pricing/>}/>
           {/* features */}
           <Route path="ppc-opportunities" element={<PPCOpportunities/>}/>
           <Route path="ppc-performance" element={<PPCPerformance/>}/>
@@ -50,7 +53,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/login" element={<Login/>} ></Route>
 
         {/* dashboard route */}
-        <Route path="/app" element={<App/>}>
+        <Route path="/dashboard" element={<Dashboard/>}>
           <Route index element={<Home/>}/>
           <Route path="projects" element={<Projects/>}/>
           <Route path="profiles" element={<Profiles/>}/>

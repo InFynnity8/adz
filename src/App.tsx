@@ -1,13 +1,17 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/custom/NavBar";
+import Footer from "./components/custom/Footer";
 
 const App = () => {
-
   return (
     <div>
-    <div className=""></div>
-    <Outlet/>
+      <NavBar />
+      <main className="pt-20">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
