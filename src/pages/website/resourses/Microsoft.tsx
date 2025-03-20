@@ -2,7 +2,7 @@ import React from 'react'
 
 const Microsoft = () => {
   return (
-    <div>Microsoft</div>
+    <div className='h-screen pt-35 px-20'>Microsoft</div>
   )
 }
 

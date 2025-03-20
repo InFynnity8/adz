@@ -2,7 +2,7 @@ import React from 'react'
 
 const Google = () => {
   return (
-    <div>Google</div>
+    <div className='h-screen pt-35 px-20'>Google</div>
   )
 }
 

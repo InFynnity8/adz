@@ -2,7 +2,7 @@ import React from 'react'
 
 const PPCOpportunities = () => {
   return (
-    <div>PPCOpportunities</div>
+    <div className='h-screen pt-35 px-20'>PPCOpportunities</div>
   )
 }
 

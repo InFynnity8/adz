@@ -2,7 +2,7 @@ import React from 'react'
 
 const MicrosoftAR = () => {
   return (
-    <div>MicrosoftAR</div>
+    <div className='h-screen pt-35 px-20'>MicrosoftAR</div>
   )
 }
 

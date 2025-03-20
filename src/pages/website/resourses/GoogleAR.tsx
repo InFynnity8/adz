@@ -2,7 +2,7 @@ import React from 'react'
 
 const GoogleAR = () => {
   return (
-    <div>GoogleAR</div>
+    <div className='h-screen pt-35 px-20'>GoogleAR</div>
   )
 }
 

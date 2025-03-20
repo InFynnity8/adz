@@ -2,7 +2,7 @@ import React from 'react'
 
 const SEOPerformance = () => {
   return (
-    <div>SEOPerformance</div>
+    <div className='h-screen pt-35 px-20'>SEOPerformance</div>
   )
 }
 

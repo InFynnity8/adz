@@ -2,7 +2,7 @@ import React from 'react'
 
 const PPCPerformance = () => {
   return (
-    <div>PPCPerformance</div>
+    <div className='h-screen pt-35 px-20'>PPCPerformance</div>
   )
 }
 

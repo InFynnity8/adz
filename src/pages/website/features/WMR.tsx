@@ -2,7 +2,7 @@ import React from 'react'
 
 const WMR = () => {
   return (
-    <div>WMR</div>
+    <div className='h-screen px-20'>WMR</div>
   )
 }
 

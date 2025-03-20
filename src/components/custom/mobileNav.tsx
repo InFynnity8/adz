@@ -1,19 +1,13 @@
-import * as React from "react";
-
-import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@radix-ui/react-navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { CiMenuFries } from "react-icons/ci";
 import { FaBuysellads } from "react-icons/fa";
-import MobileNav from "./mobileNav"
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { navigationMenuTriggerStyle } from "../ui/navigation-menu";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -48,22 +42,28 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-const NavBar = () => {
-  return (
-    <div className="px-5 xl:px-20 flex items-center justify-between p-4 bg-transparent backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-      <Link
-        to="/"
-        className="flex-1 font-bold flex items-center text-3xl text-blue-950 cursor-pointer"
-      >
-        <FaBuysellads size={35} /> dz
-      </Link>
 
-      {/*desktop navbar & hire me btn*/}
-      <div className="flex-3 justify-between hidden xl:flex items-center gap-8">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+const mobileNav = () => {
+  return (
+    <Sheet>
+      <SheetTrigger className="flex justify-center items-center">
+        <CiMenuFries className="text-[30px] text-blue-950" />
+      </SheetTrigger>
+      <SheetContent className="flex flex-col overflow-y-auto w-full h-full bg-muted pb-10">
+        {/* logo */}
+        <div className="mt-10 mb-5 text-2xl text-center">
+          <Link
+            to="/"
+            className="w-full justify-center flex-1 font-bold flex items-center text-3xl text-blue-950 cursor-pointer"
+          >
+            <FaBuysellads size={35} /> dz
+          </Link>
+        </div>
+        <nav className="flex flex-col justify-center items-center gap-5 ">
+        <NavigationMenu className="flex flex-col items-center justify-center gap-5  w-full">
+          <NavigationMenuList className="flex flex-col items-center justify-center">
+            <NavigationMenuItem className="">
+              <NavigationMenuTrigger className="w-full">Features</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[600px] lg:grid-cols-3">
                   <li className="row-span-3">
@@ -72,7 +72,7 @@ const NavBar = () => {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium flex items-center"><FaBuysellads size={35} /> dz</div>
+                        <div className="mb-2 mt-4 text-lg font-medium">adz</div>
                         <p className="text-sm leading-tight text-muted-foreground">
                           Your AI-powered marketing assistant
                         </p>
@@ -118,7 +118,7 @@ const NavBar = () => {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent">
+              <NavigationMenuTrigger className="bg-transparent w-full">
                 Resources
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -137,8 +137,8 @@ const NavBar = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        {/*auth buttons */}
-        <div className="flex items-center gap-2">
+        </nav>
+        <div className="flex items-center gap-2 justify-center w-full">
           <Link to="/login" className="cursor-pointer">
             <Button
               variant="outline"
@@ -151,13 +151,8 @@ const NavBar = () => {
             <Button className="rounded-4xl w-24 cursor-pointer">Sign Up</Button>
           </Link>
         </div>
-      </div>
-
-      {/* mobile navbar */}
-      <div className="xl:hidden">
-        <MobileNav />
-      </div>
-    </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 
@@ -187,4 +182,4 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-export default NavBar;
+export default mobileNav;
