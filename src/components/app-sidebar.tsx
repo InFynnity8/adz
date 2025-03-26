@@ -120,10 +120,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <HelpCircle />
             <span>Support</span>
           </SidebarMenuButton>
+          <Link to="/login">
           <SidebarMenuButton>
             <LogOut />
             <span>Logout</span>
           </SidebarMenuButton>
+          </Link>
         </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
