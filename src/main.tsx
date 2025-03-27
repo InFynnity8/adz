@@ -24,6 +24,7 @@ import GoogleAR from "./pages/website/resourses/GoogleAR.tsx";
 import Signup from "./pages/auth/Signup.tsx";
 import Login from "./pages/auth/Login.tsx";
 import Dashboard from "./pages/app/Dashboard.tsx";
+import { Toaster } from "./components/ui/sonner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -62,5 +63,7 @@ createRoot(document.getElementById("root")!).render(
         </Route>
       </Routes>
     </BrowserRouter>
+    
+    <Toaster />
   </StrictMode>
 );

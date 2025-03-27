@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { FaBuysellads } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import G2 from "@/assets/G2logo.png"
+import trustpilot from "@/assets/Trustpilot.png"
+import capterra from "@/assets/capterra.jpg"
+
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,11 +22,12 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password.length < 8) {
-      alert("Password must be at least 8 characters long.");
+      toast.warning("Password must be at least 8 characters long.");
       return;
     }
     console.log("Form Data:", formData);
-    alert("Form submitted! (Check console for data)");
+    toast.success("Signup successful!");
+    navigate("/dashboard");
   };
 
   return (
@@ -48,7 +55,7 @@ const Signup = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md text-lg"
+              className="w-full p-3 border border-gray-300 rounded text-lg"
             />
           </div>
           <div className="mb-6">
@@ -62,7 +69,7 @@ const Signup = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md text-lg"
+              className="w-full p-3 border border-gray-300 rounded text-lg"
             />
           </div>
           <div className="mb-6">
@@ -76,20 +83,18 @@ const Signup = () => {
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md text-lg"
+              className="w-full p-3 border border-gray-300 rounded text-lg"
             />
             <p className="text-sm text-gray-500 mt-2">
               Your password must contain 8 or more characters
             </p>
           </div>
-          <Link to="/dashboard">
           <button
             type="submit"
-            className="w-full bg-orange-600 text-white p-4 rounded-md text-lg hover:bg-orange-700"
+            className="w-full bg-primary text-white p-4 rounded cursor-pointer text-lg hover:bg-orange-600"
             >
             Sign Up
           </button>
-            </Link>
           <p className="text-center text-lg mt-4">
             Or{" "}
             <Link to="/login" className="text-orange-600">
@@ -112,7 +117,7 @@ const Signup = () => {
           </p>
         </div>
       </div>
-      <div className="hidden lg:flex lg:flex-1 xl:flex-1 p-16 bg-blue-950 text-white xl:flex flex-col justify-between">
+      <div className="hidden lg:flex lg:flex-1 xl:flex-1 p-16 bg-radial-[at_75%_-100%] from-violet-800 via-violet-900 to-purple-950 to-90% text-white xl:flex flex-col justify-between">
         <div>
           <p className="text-xl italic">
             "Great product. Simple to use but with powerful recommendations that
@@ -120,36 +125,14 @@ const Signup = () => {
           </p>
           <p className="text-right font-bold mt-4">- John Newman</p>
         </div>
-        <div className="text-center">
+        <div className="text-center mb-20">
           <p className="text-lg">
             60,000+ customers trust us to help them grow their business online
           </p>
           <div className="flex justify-center gap-6 mt-4">
-            <img src="g2.png" alt="G2 Logo" className="w-16" />
-            <img src="capterra.png" alt="Capterra Logo" className="w-16" />
-            <img src="trustpilot.png" alt="Trustpilot Logo" className="w-16" />
-          </div>
-          <div className="mt-4">
-            <p className="flex items-center justify-center">
-              <img src="g2_stars.png" alt="G2 Stars" className="w-6 mr-2" /> 4.4
-              / 5
-            </p>
-            <p className="flex items-center justify-center">
-              <img
-                src="capterra_stars.png"
-                alt="Capterra Stars"
-                className="w-6 mr-2"
-              />{" "}
-              4.2 / 5
-            </p>
-            <p className="flex items-center justify-center">
-              <img
-                src="trustpilot_stars.png"
-                alt="Trustpilot Stars"
-                className="w-6 mr-2"
-              />{" "}
-              4.7 / 5
-            </p>
+            <img src={G2} alt="G2 Logo" className="w-16" />
+            <img src={capterra} alt="Capterra Logo" className="w-20" />
+            <img src={trustpilot} alt="Trustpilot Logo" className="w-24" />
           </div>
         </div>
       </div>

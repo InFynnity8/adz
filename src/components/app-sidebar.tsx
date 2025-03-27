@@ -35,7 +35,8 @@ import {
 } from "@/components/ui/sidebar";
 import { FaBuysellads } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 // This is sample data.
 const data = {
@@ -73,6 +74,11 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    toast.success("Logged out successfully!")
+    navigate("/login")
+  }
   return (
     <Sidebar collapsible="icon" {...props} className="text-white">
       <SidebarHeader>
@@ -120,12 +126,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <HelpCircle />
             <span>Support</span>
           </SidebarMenuButton>
-          <Link to="/login">
-          <SidebarMenuButton>
+          <SidebarMenuButton onClick={handleLogout}>
             <LogOut />
             <span>Logout</span>
           </SidebarMenuButton>
-          </Link>
         </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
