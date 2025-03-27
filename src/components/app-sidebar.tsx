@@ -73,12 +73,16 @@ const data = {
   ],
 };
 
+import { useLocation } from "react-router-dom";
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navigate = useNavigate();
   const handleLogout = () => {
     toast.success("Logged out successfully!")
     navigate("/login")
   }
+  const {pathname} = useLocation();
+  console.log(pathname);
   return (
     <Sidebar collapsible="icon" {...props} className="text-white">
       <SidebarHeader>
@@ -92,19 +96,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarMenu className="px-2 -mb-3">
           <Link to="/dashboard">
-            <SidebarMenuButton>
+            <SidebarMenuButton isActive={pathname === "/dashboard"}>
               <Home />
               <span>Home</span>
             </SidebarMenuButton>
           </Link>
           <Link to="/dashboard/projects">
-          <SidebarMenuButton>
+          <SidebarMenuButton isActive={pathname === "/dashboard/projects"}>
             <FolderOpen />
             <span>Projects</span>
           </SidebarMenuButton>
           </Link>
           <Link to="/dashboard/profiles">
-          <SidebarMenuButton>
+          <SidebarMenuButton isActive={pathname === "/dashboard/profiles"}>
             <List />
             <span>Profiles</span>
           </SidebarMenuButton>
