@@ -106,7 +106,7 @@ const mobileNav = () => {
             <NavigationMenuItem>
               <Link to="/why-adz">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Why adz?
+                  About US
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -114,6 +114,13 @@ const mobileNav = () => {
               <Link to="/pricing">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Pricing
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/contact">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Contact Us
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
