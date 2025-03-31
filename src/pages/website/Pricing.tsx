@@ -85,7 +85,7 @@ const Pricing = () => {
   ];
 
   return (
-<div className='min-h-screen pt-28 px-20 bg-slate-50'>      {/* Hero Section */}
+<div className='min-h-screen pt-16 px-20 bg-slate-50'>      {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-adzconnect-purple-light to-adzconnect-blue-light">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
