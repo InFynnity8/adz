@@ -22,7 +22,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { Settings, Bell, Shield, LogOut } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 const passwordSchema = z.object({
   currentPassword: z.string().min(1, "Current password is required"),
@@ -57,7 +56,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   const [isPasswordDialogOpen, setIsPasswordDialogOpen] = useState(false);
   const [isNotificationsDialogOpen, setIsNotificationsDialogOpen] = useState(false);
   const [isPrivacyDialogOpen, setIsPrivacyDialogOpen] = useState(false);
-  const navigate = useNavigate();
+
   const passwordForm = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordSchema),
     defaultValues: {
@@ -94,12 +93,11 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   const handleLogout = () => {
     // Here you would normally call an API to logout
     toast.info('Logged out successfully');
-    navigate('/login'); // Adjust this to your routing logic
   };
 
   return (
     <>
-      <Card className="mt-4">
+      <Card>
         <CardHeader>
           <CardTitle>Account Settings</CardTitle>
         </CardHeader>

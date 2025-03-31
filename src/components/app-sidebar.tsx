@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   AudioWaveform,
+  BellDotIcon,
   BookOpen,
   Bot,
   BrainCog,
@@ -78,15 +79,15 @@ import { useLocation } from "react-router-dom";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navigate = useNavigate();
   const handleLogout = () => {
-    toast.success("Logged out successfully!")
-    navigate("/login")
-  }
-  const {pathname} = useLocation();
+    toast.success("Logged out successfully!");
+    navigate("/login");
+  };
+  const { pathname } = useLocation();
   console.log(pathname);
   return (
     <Sidebar collapsible="icon" {...props} className="text-white">
       <SidebarHeader>
-        <SidebarMenuButton  className="pointer-events-none">
+        <SidebarMenuButton className="pointer-events-none">
           <div className=" flex items-center justify-center w-full flex-1 font-bold text-3xl text-white">
             <FaBuysellads size={30} />
             <p className="text-2xl">dz</p>
@@ -102,30 +103,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuButton>
           </Link>
           <Link to="/dashboard/projects">
-          <SidebarMenuButton isActive={pathname === "/dashboard/projects"}>
-            <FolderOpen />
-            <span>Projects</span>
-          </SidebarMenuButton>
+            <SidebarMenuButton isActive={pathname === "/dashboard/projects"}>
+              <FolderOpen />
+              <span>Projects</span>
+            </SidebarMenuButton>
           </Link>
           <Link to="/dashboard/profiles">
-          <SidebarMenuButton isActive={pathname === "/dashboard/profiles"}>
-            <List />
-            <span>Profiles</span>
-          </SidebarMenuButton>
+            <SidebarMenuButton isActive={pathname === "/dashboard/profiles"}>
+              <List />
+              <span>Profiles</span>
+            </SidebarMenuButton>
           </Link>
         </SidebarMenu>
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu >
-          <SidebarMenuButton>
-            <BookOpen />
-            <span>Billing</span>
+        <SidebarMenu>
+          <Link to="/dashboard/notifications">
+          <SidebarMenuButton isActive={pathname === "/dashboard/notifications"}>
+            <BellDotIcon />
+            <span>Notifications</span>
           </SidebarMenuButton>
-          <SidebarMenuButton>
-            <Settings />
-            <span>Settings</span>
-          </SidebarMenuButton>
+          </Link>
+          <Link to="/dashboard/settings">
+            <SidebarMenuButton isActive={pathname === "/dashboard/settings"}>
+              <Settings />
+              <span>Settings</span>
+            </SidebarMenuButton>
+          </Link>
           <SidebarMenuButton>
             <HelpCircle />
             <span>Support</span>

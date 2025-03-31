@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/website/LandingPage.tsx";
-import Home from "./pages/app/Home.tsx";
-import Projects from "./pages/app/Projects.tsx";
-import Settings from "./pages/app/Settings.tsx";
-import Billing from "./pages/app/Billing.tsx";
-import Profiles from "./pages/app/Profiles.tsx";
+import Home from "./pages/app/Home";
+import Projects from "./pages/app/Projects";
+import AccountSettings from "./pages/app/Settings";
+import Billing from "./pages/app/Billing";
+import Profiles from "./pages/app/Profiles";
 import Pricing from "./pages/website/Pricing.tsx";
 import WhyAdz from "./pages/website/WhyAdz.tsx";
 import PPCOpportunities from "./pages/website/features/PPCOpportunities.tsx";
@@ -23,8 +23,11 @@ import MicrosoftAR from "./pages/website/resourses/MicrosoftAR.tsx";
 import GoogleAR from "./pages/website/resourses/GoogleAR.tsx";
 import Signup from "./pages/auth/Signup.tsx";
 import Login from "./pages/auth/Login.tsx";
-import Dashboard from "./pages/app/Dashboard.tsx";
+import Dashboard from "./pages/app/Dashboard";
 import { Toaster } from "./components/ui/sonner";
+import Reports from "./pages/app/Reports";
+import Notifications from "./pages/app/Notifications";
+import Profile from "./pages/app/Profile";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -58,8 +61,10 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<Home/>}/>
           <Route path="projects" element={<Projects/>}/>
           <Route path="profiles" element={<Profiles/>}/>
-          <Route path="billing" element={<Billing/>}/>
-          <Route path="settings" element={<Settings/>}/>
+          <Route path="notifications" element={<Notifications/>}/>
+          <Route path="profile" element={<Profile/>}/>
+          <Route path="reports" element={<Reports/>}/>
+          <Route path="settings" element={<AccountSettings accountType={"Premium"} memberSince={"29th April, 2022"} lastLogin={Date()}/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
