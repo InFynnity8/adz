@@ -56,7 +56,7 @@ const mobileNav = () => {
             to="/"
             className="w-full justify-center flex-1 font-bold flex items-center text-3xl text-blue-950 cursor-pointer"
           >
-            <FaBuysellads size={35} /> dz
+            <FaBuysellads size={35} /> dzConnect
           </Link>
         </div>
         <nav className="flex flex-col justify-center items-center gap-5 ">

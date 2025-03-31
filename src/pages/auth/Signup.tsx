@@ -27,7 +27,7 @@ const Signup = () => {
     }
     console.log("Form Data:", formData);
     toast.success("Signup successful!");
-    navigate("/dashboard");
+    navigate("/login");
   };
 
   return (
@@ -38,7 +38,7 @@ const Signup = () => {
             to="/"
             className="mr-4 flex-1 font-bold flex items-center text-4xl text-blue-950 cursor-pointer"
           >
-            <FaBuysellads size={38} /> dz
+            <FaBuysellads size={38} /> dzConnect
           </Link>
           <h1 className="text-4xl font-bold text-blue-950"> Signup</h1>
         </div>
@@ -117,8 +117,8 @@ const Signup = () => {
           </p>
         </div>
       </div>
-      <div className="hidden lg:flex lg:flex-1 xl:flex-1 p-16 bg-radial-[at_75%_-100%] from-violet-800 via-violet-900 to-purple-950 to-90% text-white xl:flex flex-col justify-between">
-        <div>
+      <div className="py-40 hidden lg:flex lg:flex-1 xl:flex-1 p-16 bg-radial-[at_75%_-100%] from-violet-800 via-violet-900 to-purple-950 to-90% text-white xl:flex flex-col justify-between">
+        <div className="">
           <p className="text-xl italic">
             "Great product. Simple to use but with powerful recommendations that
             can make a real positive difference to your campaigns."

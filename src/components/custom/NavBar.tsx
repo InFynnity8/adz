@@ -55,7 +55,7 @@ const NavBar = () => {
         to="/"
         className="flex-1 font-bold flex items-center text-3xl text-blue-950 cursor-pointer"
       >
-        <FaBuysellads size={35} /> dz
+        <FaBuysellads size={35} /> dzConnect
       </Link>
 
       {/*desktop navbar & hire me btn*/}
@@ -106,7 +106,7 @@ const NavBar = () => {
             <NavigationMenuItem>
               <Link to="/why-adz">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Why adz?
+                  About Us
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -114,6 +114,13 @@ const NavBar = () => {
               <Link to="/pricing">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Pricing
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/contact">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Contact Us
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

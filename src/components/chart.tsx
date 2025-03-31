@@ -151,11 +151,7 @@ export default function Component() {
   });
 
   return (
-    <div>
-      <div className="grid flex-1 gap-1 text-center sm:text-left">
-        <h1 className="font-medium">Account Score History</h1>
-        <p> Showing scores for the last 3 months</p>
-      </div>
+    <div className="w-full">
       <Select value={timeRange} onValueChange={setTimeRange}>
         <SelectTrigger
           className="w-[160px] rounded-lg sm:ml-auto"

@@ -101,7 +101,7 @@ const Footer = () => {
             to="/"
             className="font-bold flex items-center text-2xl text-white cursor-pointer"
           >
-            <FaBuysellads size={30} /> dz
+            <FaBuysellads size={30} /> dzConnect
           </Link>
           {/* buttons */}
           <div className="flex items-center justify-between w-28 mt-2 -ml-1">

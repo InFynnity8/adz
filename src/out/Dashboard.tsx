@@ -1,131 +1,161 @@
-
-import React from 'react';
-import { cn } from '@/lib/utils';
-import MetricsCard from './MetricsCard';
-import ConnectionCard from './ConnectionCard';
-import CampaignCard from './CampaignCard';
-import { LineChart, BarChart, Calendar, DollarSign, MousePointer, Users } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
+import React from "react";
+import { cn } from "@/lib/utils";
+import MetricsCard from "./MetricsCard";
+import ConnectionCard from "./ConnectionCard";
+import CampaignCard from "./CampaignCard";
+import {
+  LineChart,
+  BarChart,
+  Calendar,
+  DollarSign,
+  MousePointer,
+  Users,
+} from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Chart from "@/components/chart";
+import Radar from "@/components/radar";
+import { toast } from "sonner";
+// import { useToast } from '@/hooks/use-toast';
 
 interface DashboardProps {
   className?: string;
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ className }) => {
-  const { toast } = useToast();
-  
+  // const { toast } = useToast();
+
   const handleConnect = (platform: string) => {
-    toast({
-      title: "Connection initiated",
-      description: `Connecting to ${platform} Ads. This would open an authentication window.`,
-    });
+    toast.info( `Connecting to ${platform} Ads. This would open an authentication window.`);
   };
-  
+
   return (
-    <div className={cn("adzooma-container py-8", className)}>
+    <div className={cn("adzooma-container ", className)}>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">Dashboard</h1>
-        <p className="text-slate-500 mt-1">Welcome back! Here's an overview of your advertising accounts.</p>
+        <p className="text-slate-500 mt-1">
+          Welcome back! Here's an overview of your advertising accounts.
+        </p>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <MetricsCard 
+        <MetricsCard
           title="Total Spend"
           value="$12,345.67"
           change={5.2}
           icon={<DollarSign className="h-5 w-5 text-adzooma-blue" />}
         />
-        <MetricsCard 
+        <MetricsCard
           title="Impressions"
           value="1.2M"
           change={-2.8}
           icon={<Users className="h-5 w-5 text-adzooma-darkblue" />}
         />
-        <MetricsCard 
+        <MetricsCard
           title="Clicks"
           value="45,678"
           change={8.7}
           icon={<MousePointer className="h-5 w-5 text-adzooma-blue" />}
         />
-        <MetricsCard 
+        <MetricsCard
           title="Conversions"
           value="1,234"
           change={12.3}
           icon={<LineChart className="h-5 w-5 text-adzooma-darkblue" />}
         />
       </div>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <div className="col-span-1">
-          <h2 className="text-xl font-semibold text-slate-800 mb-4">Connected Accounts</h2>
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            Connected Accounts
+          </h2>
           <div className="space-y-4">
-            <ConnectionCard 
-              platform="google" 
-              connected={true} 
+            <ConnectionCard
+              platform="google"
+              connected={true}
               lastSynced="Today at 9:30 AM"
-              onConnect={() => handleConnect('Google')}
+              onConnect={() => handleConnect("Google")}
             />
-            <ConnectionCard 
-              platform="facebook" 
+            <ConnectionCard
+              platform="facebook"
               connected={false}
-              onConnect={() => handleConnect('Facebook')}
+              onConnect={() => handleConnect("Facebook")}
             />
-            <ConnectionCard 
-              platform="microsoft" 
+            <ConnectionCard
+              platform="microsoft"
               connected={false}
-              onConnect={() => handleConnect('Microsoft')}
+              onConnect={() => handleConnect("Microsoft")}
             />
           </div>
         </div>
-        
+
         <div className="col-span-1 lg:col-span-2">
           <Tabs defaultValue="performance" className="w-full">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-slate-800">Campaign Performance</h2>
+              <h2 className="text-xl font-semibold text-slate-800">
+                Campaign Performance
+              </h2>
               <TabsList>
-                <TabsTrigger value="performance">Performance</TabsTrigger>
+                <TabsTrigger value="performance">Score</TabsTrigger>
                 <TabsTrigger value="analytics">Analytics</TabsTrigger>
               </TabsList>
             </div>
-            
+
             <TabsContent value="performance" className="mt-0">
               <Card>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-lg">Performance Overview</CardTitle>
-                  <CardDescription>Daily clicks and conversions for the last 30 days</CardDescription>
+                  <CardTitle className="text-lg">
+                    Score Overview
+                  </CardTitle>
+                  <CardDescription>
+                    Daily clicks and conversions for the last 30 days
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[300px] flex items-center justify-center bg-slate-50">
-                  <div className="text-center text-slate-500">
-                    <BarChart className="h-10 w-10 mx-auto mb-3 text-adzooma-blue opacity-70" />
-                    <p>Performance chart would appear here with real data</p>
+                <CardContent className="min-h-[300px] flex items-center justify-center">
+                  <div className="flex-1">
+                    <Radar />
                   </div>
+                  <p className="flex-1 overflow">
+                    Your Account Score is a snapshot of how successful your
+                    marketing is across your online business. Your Account Score
+                    is made up of the different aspects of digital marketing and
+                    includes all projects and profiles that Adzooma can analyse,
+                    including paid advertising, SEO and your website's
+                    performance, the higher your score the better the overall
+                    rating of everything added to your Adzooma account.
+                  </p>
                 </CardContent>
               </Card>
             </TabsContent>
-            
+
             <TabsContent value="analytics" className="mt-0">
               <Card>
                 <CardHeader className="pb-4">
                   <CardTitle className="text-lg">Analytics Overview</CardTitle>
-                  <CardDescription>Conversion rate and cost per acquisition</CardDescription>
+                  <CardDescription>
+                    Conversion rate and cost per acquisition
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[300px] flex items-center justify-center bg-slate-50">
-                  <div className="text-center text-slate-500">
-                    <LineChart className="h-10 w-10 mx-auto mb-3 text-adzooma-blue opacity-70" />
-                    <p>Analytics chart would appear here with real data</p>
-                  </div>
+                <CardContent className="h-[300px] flex items-center justify-center">
+                  <Chart />
                 </CardContent>
               </Card>
             </TabsContent>
           </Tabs>
         </div>
       </div>
-      
+
       <div>
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-slate-800">Active Campaigns</h2>
+          <h2 className="text-xl font-semibold text-slate-800">
+            Active Campaigns
+          </h2>
           <div className="flex items-center space-x-2">
             <div className="text-sm text-slate-500">
               <Calendar className="h-4 w-4 inline mr-1" />
@@ -133,7 +163,7 @@ const Dashboard: React.FC<DashboardProps> = ({ className }) => {
             </div>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CampaignCard
             name="Summer Sale 2023"

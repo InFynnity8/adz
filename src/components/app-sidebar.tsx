@@ -90,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenuButton className="pointer-events-none">
           <div className=" flex items-center justify-center w-full flex-1 font-bold text-3xl text-white">
             <FaBuysellads size={30} />
-            <p className="text-2xl">dz</p>
+            <p className="text-2xl">dzConnect</p>
           </div>
         </SidebarMenuButton>
       </SidebarHeader>
@@ -111,7 +111,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <Link to="/dashboard/profiles">
             <SidebarMenuButton isActive={pathname === "/dashboard/profiles"}>
               <List />
-              <span>Profiles</span>
+              <span>Campaigns</span>
             </SidebarMenuButton>
           </Link>
         </SidebarMenu>
@@ -131,10 +131,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <span>Settings</span>
             </SidebarMenuButton>
           </Link>
-          <SidebarMenuButton>
-            <HelpCircle />
-            <span>Support</span>
-          </SidebarMenuButton>
           <SidebarMenuButton onClick={handleLogout}>
             <LogOut />
             <span>Logout</span>

@@ -28,6 +28,8 @@ import { Toaster } from "./components/ui/sonner";
 import Reports from "./pages/app/Reports";
 import Notifications from "./pages/app/Notifications";
 import Profile from "./pages/app/Profile";
+import NotFound from "./out/NotFound";
+import ContactPage from "./pages/website/Contact";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -38,6 +40,7 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<LandingPage/>}/>
           <Route path="why-adz" element={<WhyAdz/>}/>
           <Route path="pricing" element={<Pricing/>}/>
+          <Route path="contact" element={<ContactPage/>}/>
           {/* features */}
           <Route path="ppc-opportunities" element={<PPCOpportunities/>}/>
           <Route path="ppc-performance" element={<PPCPerformance/>}/>
@@ -55,6 +58,7 @@ createRoot(document.getElementById("root")!).render(
         {/* Authentication route */}
         <Route path="/signup" element={<Signup/> }></Route>
         <Route path="/login" element={<Login/>} ></Route>
+        <Route path="*" element={<NotFound/>} ></Route>
 
         {/* dashboard route */}
         <Route path="/dashboard" element={<Dashboard/>}>
