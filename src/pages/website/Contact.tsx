@@ -30,7 +30,7 @@ const ContactPage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Contact Us
             </h1>
-            <p className="text-xl mb-6 text-white/90">
+            <p className="text-xl mb-6">
               Have questions? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
             </p>
           </div>
