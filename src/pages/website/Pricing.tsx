@@ -247,7 +247,7 @@ const Pricing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black xl:-mx-20 -mx-5 px-5 xl:px-20">
+      <section className="py-20 bg-slate-950 xl:-mx-20 -mx-5 px-5 xl:px-20">
         <div className="container-custom">
           <div className="bg-gradient-to-r from-adzconnect-purple to-adzconnect-blue rounded-2xl p-10 text-white text-center max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

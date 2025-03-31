@@ -243,7 +243,7 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="xl:-mx-20 -mx-5 px-5 xl:px-20 py-20 bg-black text-white">
+      <section className="xl:-mx-20 -mx-5 px-5 xl:px-20 py-20 bg-slate-950 text-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
