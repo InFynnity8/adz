@@ -43,61 +43,13 @@ const Dashboard: React.FC<DashboardProps> = ({ className }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <MetricsCard
-          title="Total Spend"
-          value="$12,345.67"
-          change={5.2}
-          icon={<DollarSign className="h-5 w-5 text-adzooma-blue" />}
-        />
-        <MetricsCard
-          title="Impressions"
-          value="1.2M"
-          change={-2.8}
-          icon={<Users className="h-5 w-5 text-adzooma-darkblue" />}
-        />
-        <MetricsCard
-          title="Clicks"
-          value="45,678"
-          change={8.7}
-          icon={<MousePointer className="h-5 w-5 text-adzooma-blue" />}
-        />
-        <MetricsCard
-          title="Conversions"
-          value="1,234"
-          change={12.3}
-          icon={<LineChart className="h-5 w-5 text-adzooma-darkblue" />}
-        />
-      </div>
+      
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="col-span-1">
-          <h2 className="text-xl font-semibold text-slate-800 mb-4">
-            Connected Accounts
-          </h2>
-          <div className="space-y-4">
-            <ConnectionCard
-              platform="google"
-              connected={true}
-              lastSynced="Today at 9:30 AM"
-              onConnect={() => handleConnect("Google")}
-            />
-            <ConnectionCard
-              platform="facebook"
-              connected={false}
-              onConnect={() => handleConnect("Facebook")}
-            />
-            <ConnectionCard
-              platform="microsoft"
-              connected={false}
-              onConnect={() => handleConnect("Microsoft")}
-            />
-          </div>
-        </div>
 
         <div className="col-span-1 lg:col-span-2">
           <Tabs defaultValue="performance" className="w-full">
-            <div className="flex justify-between items-center mb-4">
+            <div className="gap-2 items-center mb-4">
               <h2 className="text-xl font-semibold text-slate-800">
                 Campaign Performance
               </h2>
@@ -149,6 +101,55 @@ const Dashboard: React.FC<DashboardProps> = ({ className }) => {
             </TabsContent>
           </Tabs>
         </div>
+        <div className="col-span-1">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">
+            Connected Accounts
+          </h2>
+          <div className="space-y-4">
+            <ConnectionCard
+              platform="google"
+              connected={true}
+              lastSynced="Today at 9:30 AM"
+              onConnect={() => handleConnect("Google")}
+            />
+            <ConnectionCard
+              platform="facebook"
+              connected={false}
+              onConnect={() => handleConnect("Facebook")}
+            />
+            <ConnectionCard
+              platform="microsoft"
+              connected={false}
+              onConnect={() => handleConnect("Microsoft")}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <MetricsCard
+          title="Total Spend"
+          value="$12,345.67"
+          change={5.2}
+          icon={<DollarSign className="h-5 w-5 text-adzooma-blue" />}
+        />
+        <MetricsCard
+          title="Impressions"
+          value="1.2M"
+          change={-2.8}
+          icon={<Users className="h-5 w-5 text-adzooma-darkblue" />}
+        />
+        <MetricsCard
+          title="Clicks"
+          value="45,678"
+          change={8.7}
+          icon={<MousePointer className="h-5 w-5 text-adzooma-blue" />}
+        />
+        <MetricsCard
+          title="Conversions"
+          value="1,234"
+          change={12.3}
+          icon={<LineChart className="h-5 w-5 text-adzooma-darkblue" />}
+        />
       </div>
 
       <div>

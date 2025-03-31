@@ -81,7 +81,7 @@ const ConnectionCard: React.FC<ConnectionCardProps> = ({
       <div className="mt-auto">
         <Button 
           variant={connected ? "outline" : "default"}
-          className={connected ? "w-full" : "w-full bg-adzooma-blue hover:bg-adzooma-darkblue"}
+          className={connected ? "w-full" : "w-full bg-blue-500 hover:bg-blue-950"}
           onClick={onConnect}
         >
           {connected ? "Refresh Connection" : "Connect Account"}
