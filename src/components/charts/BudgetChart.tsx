@@ -87,20 +87,20 @@ export default function Component() {
       
 
   return (
-    <div className="p-5">
+    <div className="">
         <h1>Enter Budget:</h1>
        <div className="flex items-center justify-center gap-4 mb-5">
         
         <Input value={budget} onChange={e => setBudget(Number(e.target.value))} type="text" placeholder="Please Enter a Budget"/>
         <Button onClick={() => handleBudgetPost(budget)}>Submit</Button>
         </div> 
-    <Card >
+        { fetched ? <Card >
       <CardHeader>
         <CardTitle>Optimized Budget</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent >
-        { fetched ? <ChartContainer config={chartConfig}>
+         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
             data={chartData}
@@ -147,14 +147,14 @@ export default function Component() {
               />
             </Bar>
           </BarChart>
-        </ChartContainer> : "Data will show here"}
+        </ChartContainer> 
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
           Optimized budget for TV, Radio and NewsPaper with predicted Sales <TrendingUp className="h-4 w-4" />
         </div>
       </CardFooter>
-    </Card>
+    </Card>: <p className="text-gray-500 w-full text-center">Data will show here</p>}
     </div>
   )
 }
