@@ -30,6 +30,8 @@ import Notifications from "./pages/app/Notifications";
 import Profile from "./pages/app/Profile";
 import NotFound from "./out/NotFound";
 import ContactPage from "./pages/website/Contact";
+import AdPrediction from "./pages/app/models/AdPrediction";
+import BudgetOpt from "./pages/app/models/BudgetOpt";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -68,6 +70,8 @@ createRoot(document.getElementById("root")!).render(
           <Route path="notifications" element={<Notifications/>}/>
           <Route path="profile" element={<Profile/>}/>
           <Route path="reports" element={<Reports/>}/>
+          <Route path="adprediction" element={<AdPrediction/>}/>
+          <Route path="budgeting" element={<BudgetOpt/>}/>
           <Route path="settings" element={<AccountSettings accountType={"Premium"} memberSince={"29th April, 2022"} lastLogin={Date()}/>}/>
         </Route>
       </Routes>

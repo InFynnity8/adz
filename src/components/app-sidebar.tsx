@@ -54,21 +54,21 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Automatic Reporting",
-          url: "#",
+          title: "Ads Performance",
+          url: "/dashboard/adprediction",
         },
         {
-          title: "Advanced Budget management",
-          url: "#",
+          title: "Advanced Budget Optimization",
+          url: "/dashboard/budgeting",
         },
-        {
-          title: "Programmatic Advertising",
-          url: "#",
-        },
-        {
-          title: "Become a ClickTech Partner",
-          url: "#",
-        },
+        // {
+        //   title: "Programmatic Advertising",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Become a ClickTech Partner",
+        //   url: "#",
+        // },
       ],
     },
   ],
